@@ -107,3 +107,4 @@ node_modules
 package-lock.json
 bin/generate-certs
 seed.js
+certs

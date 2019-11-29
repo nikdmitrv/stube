@@ -19,7 +19,7 @@ document.addEventListener('click', async e => {
         if (responseJSON.validationError) {
             alert(responseJSON.validationError);
         } else if (responseJSON.redirectTo) {
-            window.location.replace('https://stube-sample-app.herokuapp.com/' + responseJSON.redirectTo);
+            window.location.replace('https://localhost:3000/' + responseJSON.redirectTo);
         }
     }
 })

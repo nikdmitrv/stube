@@ -7,7 +7,7 @@
 const app = require('../app');
 const debug = require('debug')('express-default:server');
 const chatServer = require('../chat-server/chat-server');
-const https = require('https');
+const http= require('http');
 const fs = require('fs');
 
 /**
@@ -22,10 +22,10 @@ app.set('port', port);
  */
 
 const server = https.createServer(
-  {
-    key: fs.readFileSync('certs/server-key.pem'),
-    cert: fs.readFileSync('certs/server-cert.pem')
-  },
+//   {
+//     key: fs.readFileSync('certs/server-key.pem'),
+//     cert: fs.readFileSync('certs/server-cert.pem')
+//   },
   app
 );
 

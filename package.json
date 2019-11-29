@@ -19,7 +19,7 @@
   "homepage": "https://github.com/nikdmitrv/stube#readme",
   "dependencies": {
     "bcrypt": "^3.0.7",
-    "connect-redis": "^4.0.3",
+    "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -29,7 +29,6 @@
     "http-errors": "~1.6.2",
     "mongoose": "^5.4.15",
     "morgan": "~1.9.0",
-    "redis": "^2.8.0",
     "ws": "^7.2.0"
   }
 }

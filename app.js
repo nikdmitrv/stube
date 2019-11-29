@@ -5,9 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const session = require('express-session');
-const redis = require('redis');
-const RedisStore = require('connect-redis')(session)
-const client = redis.createClient()
+
+const MongoStore = require('connect-mongo')(session);
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
@@ -19,6 +18,8 @@ mongoose.connect('mongodb+srv://datauser:neJNDDYBoEGvopZ6@cluster0-qyjcg.mongodb
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
+mongoose.Promise = global.Promise
+const db = mongoose.connection
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,11 +33,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    store: new RedisStore({
-        client,
-        host: 'localhost',
-        port: 3000,
-        ttl: 260,
+    store: new MongoStore({
+        mongooseConnection: db,
     }),
     key: 'user_sid',
     secret: 'oh klahoma',

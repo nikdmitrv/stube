@@ -59,7 +59,6 @@ function init() {
 
 
                 wsc.onopen = () => {
-                    console.info('Connected to server');
                     document.send_message.elements['send'].disabled = false;
                     document.send_message.elements['send'].addEventListener('click', () => {
                         const messageInput = document.send_message.elements['message'];
@@ -99,15 +98,12 @@ function init() {
                             })
                             wsc.send(data);
                         }
-                        console.log('Master status: ', masterStatus);
                     });
 
                 };
 
                 wsc.onmessage = event => {
                     const data = JSON.parse(event.data);
-                    console.log(data);
-                    console.log(nickname);
                     if (data.masterWho) {
                         data.masterWho === nickname
                             ? masterStatus = true
@@ -130,7 +126,6 @@ function init() {
                         document.getElementById('master-status').innerText = `${data.masterWho} is master!`;
                     }
                     if (data.videoState && !masterStatus) {
-                        console.log('Here')
                         let state = data.videoState;
                         switch (state) {
                             case 1:
@@ -146,8 +141,6 @@ function init() {
                         }
                     }
                 };
-            } else {
-                console.log('no')
             }
         })
 

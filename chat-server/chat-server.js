@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/stube', {
+mongoose.connect('mongodb+srv://datauser:neJNDDYBoEGvopZ6@cluster0-qyjcg.mongodb.net/stube?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

@@ -105,5 +105,5 @@ dist
 
 node_modules
 package-lock.json
-certs
 bin/generate-certs
+seed.js

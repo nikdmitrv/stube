@@ -60,7 +60,8 @@ function init() {
 
                 wsc.onopen = () => {
                     document.send_message.elements['send'].disabled = false;
-                    document.send_message.elements['send'].addEventListener('click', () => {
+                    document.send_message.elements['send'].addEventListener('click', (e) => {
+                        e.preventDefault();
                         const messageInput = document.send_message.elements['message'];
                         wsc.send(JSON.stringify({
                             newMessage: {
@@ -111,13 +112,15 @@ function init() {
                     }
 
                     if (data.newMessage) {
-                        const nickname = document.createElement('dt');
-                        nickname.innerText = data.newMessage.nickname;
-                        const message = document.createElement('dd');
+                        const nickname = document.createElement('span');
+                        nickname.innerText = data.newMessage.nickname + ': ';
+                        const message = document.createElement('span');
                         message.innerText = data.newMessage.message;
+                        const entry = document.createElement('p');
+                        entry.appendChild(nickname);
+                        entry.appendChild(message);
                         const chat = document.getElementById('chat');
-                        chat.append(nickname);
-                        chat.append(message);
+                        chat.appendChild(entry)
                     }
                     if (data.videoChange) {
                         player.loadVideoById(data.videoChange.id)

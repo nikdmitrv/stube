@@ -1,27 +1,38 @@
-<h1>Hello world!</h1>
-{{#unless logged}}
-<a href='/user/signin'>Sign In</a>
-<a href='/user/signup'>Sign Up</a>
-{{/unless}}
+<div class='header'>
+    <h1>STube</h1>
+    {{#unless logged}}
+    <a href='/user/signin'>Sign In</a>
+    <a href='/user/signup'>Sign Up</a>
+    {{/unless}}
+    {{#if logged}}
+    <a href='/user/logout/'>Logout</a>
+    <div id='nickname'></div>
+    {{/if}}
+</div>
 {{#if logged}}
-<a href='/user/logout/'>Logout</a>
 
-<div id='player'></div>
+<div class='player-container'>
 
-<form name='insert_video'>
-    <input id='insert_video_input' name='video_url'>
-    <button id='insert_video_button' type='button'>Insert</button>
-</form>
-
-<h1>Chat</h1>
-<div id='master-status'></div>
-<button id='master-status-button'>Become master</button>
-<dl id="chat">
-</dl>
+    <div id='player'></div>
+    <div class='insert-container'>
+        <p>Insert a new video:</p>
+        <form name='insert_video'>
+            <input id='insert_video_input' name='video_url'>
+            <button id='insert_video_button' type='button'>Insert</button>
+        </form>
+    </div>
+</div>
+<div class='chat-heading'>
+    <h1>Chat</h1>
+    <div id='master-status'></div>
+    <button id='master-status-button'>Become master</button>
+</div>
+<div id="chat">
+</div>
 
 <form name="send_message">
-    <label>Сообщение от <span id="nickname"></span>: <input name="message" type="text" /></label>
-    <button name="send" type="button" disabled>Отправить</button>
+    <label>Сообщение: <input name="message" type="text" /></label>
+    <button name="send" type="button" disabled>Send</button>
 </form>
 <script defer src='/js/chat.js'></script>
 {{/if}}

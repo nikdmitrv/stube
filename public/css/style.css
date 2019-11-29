@@ -1,0 +1,50 @@
+.wrapper {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+.header {
+    display:flex;
+    align-items: baseline;
+}
+
+.header h1 {
+    margin-right: 20px;
+}
+.header a {
+    margin-right: 20px;
+}
+
+.player-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.insert-container {
+    margin-top: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-container, .signup-container {
+    width: 400px;
+}
+
+.signin-container input[type=submit],.signup-container input[type=submit] {
+    margin-top: 20px;
+    border-radius: 5px;;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.chat-heading {
+    margin-bottom: 40px;
+}

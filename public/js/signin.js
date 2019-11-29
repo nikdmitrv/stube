@@ -18,7 +18,7 @@ document.addEventListener('click', async e => {
             document.getElementById('error-message')
                 .appendChild(h);
         } else {
-            window.location.replace('https://localhost:3000')
+            window.location.replace('https://stube-sample-app.herokuapp.com/')
         }
     }
 })
